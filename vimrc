@@ -17,13 +17,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jlanzarotta/bufexplorer'
 
 " Dev. environment
-" Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-cucumber'
 Plugin 'avakhov/vim-yaml'
 Plugin 'briancollins/vim-jst'
 Plugin 'othree/html5.vim'
@@ -32,7 +31,6 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'stefanoverna/vim-i18n'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'thoughtbot/vim-rspec'
@@ -45,15 +43,12 @@ Plugin 'lukaszb/vim-web-indent'
 
 Plugin 'ekalinin/Dockerfile.vim'
 
-" LaTeX
-Plugin 'lervag/vimtex'
-
 " Русская раскладка
 Plugin 'powerman/vim-plugin-ruscmd'
 
 call vundle#end()
 
-" set re=1
+runtime macros/matchit.vim
 
 " Auto reload changed files
 set autoread
@@ -129,17 +124,11 @@ filetype plugin indent on
 
 set nu
 
-" Disable GUI scrollbars
-set guioptions-=L
-set guioptions-=r
-
 " NERDTree --------------
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-map <C-n> :NERDTreeToggle<CR>
 "------------------------
 
 " VIM-SYNTASTIC
@@ -185,11 +174,13 @@ set expandtab       " Expand TABs to spaces
 
 autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 autocmd Filetype jst setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 
-set foldenable
-set foldlevel=99
-map <Space> za
-autocmd Filetype ruby setlocal foldmethod=syntax
+set pastetoggle=<F2>
+" set foldenable
+" set foldlevel=99
+" map <Space> za
+" autocmd Filetype ruby setlocal foldmethod=syntax
 
 " nnoremap <Leader>d :TernDef<CR>
 
