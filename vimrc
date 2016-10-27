@@ -50,6 +50,7 @@ call vundle#end()
 
 runtime macros/matchit.vim
 
+set mouse=a
 " Auto reload changed files
 set autoread
 
