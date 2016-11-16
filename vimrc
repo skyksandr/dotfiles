@@ -34,6 +34,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'AndrewRadev/vim-eco'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'rust-lang/rust.vim'
 
 " Colorscheme, syntax highlighting
 Plugin 'altercation/vim-colors-solarized'
@@ -67,10 +68,6 @@ set noshowmode
 " Numbers of rows to keep to the left and to the right off the screen
 set scrolloff=3
 
-" vim-i18n
-vmap <Leader>z :call I18nTranslateString()<CR>
-vmap <Leader>dt :call I18nDisplayTranslation()<CR>
-
 " Airline
 set laststatus=2
 
@@ -79,7 +76,6 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-
 
 let g:airline_enable_bufferline=1
 let g:airline_enable_fugitive=1
@@ -96,9 +92,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.branch = '⎇ '
-
-" map leader to ,
-let mapleader = ","
 
 " map F3 to BufExplorer
 imap <F3> <ESC>:BufExplorer<CR>
@@ -155,6 +148,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Searches
+" ------------------------------
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+nmap <leader>h :nohlsearch<cr>
+
+" ------------------------------
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
  
@@ -177,6 +181,7 @@ autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
 autocmd Filetype jst setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 
+set backspace=indent,eol,start
 set pastetoggle=<F2>
 " set foldenable
 " set foldlevel=99
